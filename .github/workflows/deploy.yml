@@ -27,9 +27,9 @@ jobs:
       - name: Upload to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
-          ftp-server: ftp.keyllafarina.com
-          ftp-username: admin@keyllafarina.com
-          ftp-password: M@riana159753
+          server: ftp.keyllafarina.com
+          username: admin@keyllafarina.com
+          password: M@riana159753
           local-dir: dist
           git-ftp-args: --insecure
 
