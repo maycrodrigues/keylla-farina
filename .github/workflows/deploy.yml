@@ -28,8 +28,8 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
           ftp-server: ftp.keyllafarina.com
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          ftp-username: admin@keyllafarina.com
+          ftp-password: M@riana159753
           local-dir: dist
           git-ftp-args: --insecure
 
