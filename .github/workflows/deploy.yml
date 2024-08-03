@@ -35,6 +35,7 @@ jobs:
           git-ftp-args: --insecure
 
       - name: Criando o release/tag
+        permissions: write-all
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
