@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { MdEmail } from "react-icons/md";
+import { FaFacebook } from "react-icons/fa";
+import { RiInstagramFill } from "react-icons/ri";
+import { IoLogoWhatsapp } from "react-icons/io";
+
+import logo from "./assets/keyllafarina-logo.svg";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 to-gray-300">
+      <div className="flex flex-col items-center gap-10">
+        <img src={logo} className="w-60 h-60" alt="Keylla Farina" />
+        <h1 className="font-libre text-3xl">Keylla Farina</h1>
+        <div className="flex flex-row gap-4">
+          <a
+            href="mailto:contato@keyllafarina.com"
+            title="contato@keyllafarina.com"
+            target="_blank"
+          >
+            <MdEmail size={"2em"} />
+          </a>
+          <a href="#" target="_blank" title="Entre em contato via Whatsapp">
+            <IoLogoWhatsapp size={"1.9em"} />
+          </a>
+          <a
+            href="http://www.instagram.com/keyllafarinafotos"
+            title="@keyllafarinafotos"
+            target="_blank"
+          >
+            <RiInstagramFill size={"2em"} />
+          </a>
+          <a
+            href="http://www.facebook.com/keyllafarinafotos"
+            title="@keyllafarinafotos"
+            target="_blank"
+          >
+            <FaFacebook size={"1.9em"} />
+          </a>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
