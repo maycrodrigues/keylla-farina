@@ -38,11 +38,7 @@ jobs:
       - name: Criando o release/tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
+          tag: ${{ github.ref }}
         run: |
           gh release create "$tag" \
               --repo="$GITHUB_REPOSITORY" \
