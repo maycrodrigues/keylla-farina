@@ -19,7 +19,11 @@ function App() {
           >
             <MdEmail size={"2em"} />
           </a>
-          <a href="#" target="_blank" title="Entre em contato via Whatsapp">
+          <a
+            href="https://wa.me/55997532187"
+            target="_blank"
+            title="Entre em contato via Whatsapp"
+          >
             <IoLogoWhatsapp size={"1.9em"} />
           </a>
           <a
