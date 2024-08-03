@@ -34,18 +34,6 @@ jobs:
           server-dir: public_html/
           git-ftp-args: --insecure
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v1.0.${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
-          body: "Automated release for build ${{ github.run_number }}"
-          draft: false
-          prerelease: false
-
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
