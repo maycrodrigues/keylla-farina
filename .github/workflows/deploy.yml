@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions: write-all
 
     steps:
       - name: Atualizando repositório
@@ -35,7 +36,6 @@ jobs:
           git-ftp-args: --insecure
 
       - name: Criando o release/tag
-        permissions: write-all
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
