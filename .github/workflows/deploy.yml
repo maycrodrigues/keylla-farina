@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Atualizando repositório
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Criando o ambiente
         uses: actions/setup-node@v2
         with:
           node-version: "20"
 
-      - name: Install dependencies
+      - name: Instalando dependências
         run: npm install
 
-      - name: Build project
+      - name: Gerando o projeto
         run: npm run build
 
-      - name: Upload to FTP
+      - name: Atualizando arquivos via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -33,3 +33,13 @@ jobs:
           local-dir: dist/
           server-dir: public_html/
           git-ftp-args: --insecure
+
+      - name: Criando o release/tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+        run: |
+          gh release create "$tag" \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${GITHUB_REPOSITORY#*/} ${tag#v}" \
+              --generate-notes
